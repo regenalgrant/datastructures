@@ -53,5 +53,6 @@ class Link_List(object):
             while data != current.data:
                 current = current.next_node
             return current
+            data.current = None 
         except AttributeError:
-            raise IndexError("Did not find value")
+            return None

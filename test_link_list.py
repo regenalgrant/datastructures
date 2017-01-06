@@ -41,9 +41,8 @@ def test_search_value_not_list():
     """"Testing for value."""
     test_instance = Link_List("NotHere")
     test_node = Node("notnode")
-    with pytest.raises(IndexError) as message:
-            test_instance.search(test_node.data)
-    assert "Did not find value" in str(message)
+    assert test_instance.search(test_node.data) == None
+    
 
 
 def test_search_value():
@@ -51,10 +50,4 @@ def test_search_value():
     test_instance = Link_List("IamHere")
     test_node = Node("I")
     assert test_instance.search(test_node.data).data == "I"
-
-
-
-
-
-
 
