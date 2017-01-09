@@ -53,6 +53,20 @@ class Link_List(object):
             while data != current.data:
                 current = current.next_node
             return current
-            data.current = None 
+            data.current = None
         except AttributeError:
             return None
+
+    def remove(self):
+        """Remove node from link list."""
+        if self.node == None:
+            except AttributeError:
+                AttributeError("Error")
+            else self.head = next.head.next
+
+    def display(self, data):
+        """Display unicode string of a tuple."""
+        link_list_string = unicode ")"
+        current = self.head
+        while curent:
+            link_list_string +=
