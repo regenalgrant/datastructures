@@ -55,18 +55,26 @@ class Link_List(object):
             return current
             data.current = None
         except AttributeError:
-            return None
+            return
 
-    def remove(self):
+    def remove(self, node):
         """Remove node from link list."""
-        if self.node == None:
-            except AttributeError:
-                AttributeError("Error")
-            else self.head = next.head.next
-
-    def display(self, data):
-        """Display unicode string of a tuple."""
-        link_list_string = unicode ")"
         current = self.head
-        while curent:
-            link_list_string +=
+        try:
+            while node.data != current.data:
+                previous = current
+                current = current.next_node
+            previous.next_node = current.next_node
+        except AttributeError:
+            raise IndexError("Error")
+
+
+    def display(self):
+        """Display unicode string of a tuple."""
+        link_list_string = "("
+        current = self.head
+        while current:
+            link_list_string = "".join(link_list_string + str(current.data) + ", ")
+            current = current.next_node
+        link_list_string = link_list_string[:-2] + ")"
+        return link_list_string

@@ -41,7 +41,7 @@ def test_search_value_not_list():
     """"Testing for value."""
     test_instance = Link_List("NotHere")
     test_node = Node("notnode")
-    assert test_instance.search(test_node.data) == None
+    assert test_instance.search(test_node.data) is None
 
 
 def test_search_value():
@@ -49,3 +49,13 @@ def test_search_value():
     test_instance = Link_List("IamHere")
     test_node = Node("I")
     assert test_instance.search(test_node.data).data == "I"
+
+def test_remove():
+    test_instance = Link_List("list")
+    search_node = test_instance.search("s")
+    test_instance.remove(search_node)
+    assert test_instance.head.next_node.data == 'i'
+
+def test_display():
+    test_instance = Link_List("data")
+    assert test_instance.display() == "(a, t, a, d)"
