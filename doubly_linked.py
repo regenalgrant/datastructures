@@ -1,5 +1,5 @@
 """Creats a double linked list."""
-
+from linklist import Link_List
 
 class DoubleLinkedList(object):
     """A singly-linked list."""
