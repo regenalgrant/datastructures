@@ -11,7 +11,7 @@ setup(
     author="Regenal",
     author_email="regenal@mac.com",
     license="MIT",
-    py_modules=['link_list',],
+    py_modules=['LinkList',],
     package_dir={'': 'src'},
     install_requires=[''],
     extras_require={'test': ['pytest', 'pytest-watch', 'pytest-cov', 'tox']},

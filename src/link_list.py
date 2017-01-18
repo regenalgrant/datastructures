@@ -7,7 +7,7 @@ class Node(object):
         self.next_node = None
 
 
-class Link_List(object):
+class LinkedList(object):
     """Creating a template for Link List."""
 
     def __init__(self, data=None):
@@ -53,28 +53,31 @@ class Link_List(object):
             while data != current.data:
                 current = current.next_node
             return current
-            data.current = None
         except AttributeError:
             return
 
     def remove(self, node):
         """Remove node from link list."""
+        if self.head is None:
+            raise IndexError("list is empty")
         current = self.head
+        if current == node and current.next_node is not None:
+            self.head = current.next_node 
+            current = None
+            return self.head
         try:
-            while node.data != current.data:
-                previous = current
+            while current.next_node != node:
                 current = current.next_node
-            previous.next_node = current.next_node
-        except AttributeError:
+            current.next_node = current.next_node.next_node
+        except ValueError:
             raise IndexError("Error")
-
 
     def display(self):
         """Display unicode string of a tuple."""
         link_list_string = "("
         current = self.head
         while current:
-            link_list_string = "".join(link_list_string + str(current.data) + ", ")
+            link_list_string = link_list_string + str(current.data) + ", "
             current = current.next_node
         link_list_string = link_list_string[:-2] + ")"
         return link_list_string
