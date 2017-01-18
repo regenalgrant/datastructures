@@ -44,34 +44,34 @@ def test_size():
 
 
 def test_search_value_not_list():
-    """"Testing for value."""
+    """"Testing for value not found in list."""
     test_instance = LinkedList("NotHere")
     test_node = Node("notnode")
     assert test_instance.search(test_node.data) is None
 
 
 def test_search_value():
-    """Searching a value in a Node."""
+    """Testing a value for value Node in a list."""
     test_instance = LinkedList("IamHere")
     test_node = Node("I")
     assert test_instance.search(test_node.data).data == "I"
 
 def test_remove():
-    """Testing for an instance of a node being removed."""
+    """Testing node being actually removed from the list."""
     test_instance = LinkedList("list")
     search_node = test_instance.search("s")
     test_instance.remove(search_node)
     assert test_instance.head.next_node.data == 'i'
 
 def test_remove_head():
-    """Test in instance of a node to see if head is removed."""
+    """Testing that node in the head is being removed."""
     test_instance = LinkedList("list")
     search_node = test_instance.search("t")
     test_instance.remove(search_node)
     assert test_instance.head.data == "s"
 
 def test_remove_from_empty_list():
-    """Test for an instance of an empty list."""
+    """Testing for error when trying remove from an empty list."""
     test_instance = LinkedList()
     search_node = Node("s")
     with pytest.raises(IndexError) as message:
@@ -79,7 +79,7 @@ def test_remove_from_empty_list():
     assert "list is empty" in str(message)
 
 def test_remove_node_far_head():
-    """Test for a node that has been removed from the head."""
+    """Testing for a removal of a node that is not close to head."""
     test_instance = LinkedList("people")
     search_node = test_instance.search("o")
     test_instance.remove(search_node)
@@ -89,6 +89,6 @@ def test_remove_node_far_head():
     assert test_instance.head.data == "e"
 
 def test_display():
-    """Test that the display method returns data."""
+    """Testing display returning a unicode within string."""
     test_instance = LinkedList("data")
     assert test_instance.display() == "(a, t, a, d)"
