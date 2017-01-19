@@ -17,4 +17,6 @@ class Stack(object):
         """Push method add a node to stack."""
         self.linklist.push(data)
 
-    
+    def pop(self):
+        """Method to remove head node."""
+        return self.linklist.pop()
