@@ -1,14 +1,13 @@
-
+"""Implementation of a stack."""
 from __future__ import unicode_literals
 from link_list import LinkedList
 
 
-
 class Stack(object):
-    """implemention of a stack class."""
+    """Implemention of a stack class."""
 
     def __init__(self, data=None):
-        """Init stack, with nodes containing information
+        """Init stack, with nodes containing information.
         provided as long as data is iterable.
         """
         self.linklist = LinkedList(data)
