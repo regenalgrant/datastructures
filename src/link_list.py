@@ -15,7 +15,7 @@ class LinkedList(object):
         available upon intitialization,
         if iterable date is available, iters through data."""
         self.head = None
-        if data is not None:
+        if data:
             try:
                 for info in data:
                     self.push(info)
@@ -62,15 +62,15 @@ class LinkedList(object):
             raise IndexError("list is empty")
         current = self.head
         if current == node and current.next_node is not None:
-            self.head = current.next_node 
+            self.head = current.next_node
             current = None
             return self.head
         try:
             while current.next_node != node:
                 current = current.next_node
             current.next_node = current.next_node.next_node
-        except ValueError:
-            raise IndexError("Error")
+        except AttributeError:
+            raise IndexError("Value not found in list")
 
     def display(self):
         """Display unicode string of a tuple."""
