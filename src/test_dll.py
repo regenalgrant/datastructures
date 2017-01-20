@@ -26,7 +26,7 @@ def test_push_existing_list():
     assert test_instance.head.data == "two"
 
 def test_push_empty():
-    """Testing is push node to a empty list."""
+    """Testing for push node to an empty list."""
     test_instance = DoublyLinkedList()
     test_instance.push(1)
     assert test_instance.head.data == test_instance.tail.data
@@ -40,18 +40,45 @@ def test_push_mutiple_nodes():
     test_instance.push(7)
     assert test_instance.head.next_node.data == test_instance.tail.previous.previous.data
 
-
+def test_push_pop():
+    """Testing both pushing and popping nodes to a DoublyLinkedList."""
+    test_instance = DoublyLinkedList()
+    test_instance.push(4)
+    test_instance.pop(5)
+    assert test_instance.head.next_node.data == test_instance.tail.previous.previous.data
 
 # def test_pop():
-#
-# def test_pop_retun():
-#
+    """testing for pop method."""
+    # test_instance = DoublyLinkedList([1, 2, 3, 4])
+    # test_instance.pop(4)
+    # or<---
+    # assert test_instance.pop() == "4"
+
 # def test_pop_empty():
+    """Testing for pop node to an empty list."""
+    # test_instance = DoublyLinkedList()
+    # test_instance.head.pop(1)
+    # assert test_instance.tail.data == test_instance.head.data
+
+# def test_append_method():
+    """Testing for method appending value to a node."""
+    # test_instance = DoublyLinkedList()
+    # test_instance.append(4)
+    # assert test_instance.append.data == 4
+
+# def test_append_to_tail():
+    """Testing for method to append value to the tail."""
+    # test_instance = DoublyLinkedList()
+    # test_instance.append(10)
+    # assert test_instance.append.tail.data == 10
+    # assert test_instance.append.tail is not None
 
 #
-# def test_append_method():
-# def test_append_to_tail():
-#
 # def test_shift_method():
+    test_instance = DoublyLinkedList()
 #
 # def test_remove_method():
+test_instance = DoublyLinkedList("list")
+search_node = test_instance.search("s")
+test_instance.remove(search_node)
+assert test_instance.head.next_node.data == 'i'
