@@ -20,7 +20,6 @@ class DoublyLinkedList(object):
         self.head = None
         self.tail = None
         try:
-            import pdb; pdb.set_trace()
             if data:
                 for i in data:
                     self.push(i)
@@ -31,7 +30,7 @@ class DoublyLinkedList(object):
         """Creating a push method that adds a new node to head of the DoublyLinkedList."""
         new_node = Node(data)
         new_node.previous = None
-        new_node.next = self.head
+        new_node.next_node = self.head
         if self.head:
             self.head.previous = new_node
         self.head = new_node

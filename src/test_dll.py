@@ -25,4 +25,19 @@ def test_push_method():
     test_instance.push("two")
     assert test_instance.head.data == "two"
 
-def 
+def test_push_return():
+
+def test_pop_method():
+
+def test_pop_retun():
+
+def test_pop_empty():
+
+def test_push_empty():
+
+def test_append_method():
+def test_append_to_tail():
+
+def test_shift_method():
+
+def test_remove_method():
