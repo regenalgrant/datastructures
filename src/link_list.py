@@ -1,3 +1,4 @@
+
 class Node(object):
     """Creating a template for a Node."""
 
@@ -62,7 +63,7 @@ class LinkedList(object):
             raise IndexError("list is empty")
         current = self.head
         if current == node and current.next_node is not None:
-            self.head = current.next_node 
+            self.head = current.next_node
             current = None
             return self.head
         try:
