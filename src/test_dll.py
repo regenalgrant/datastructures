@@ -41,24 +41,18 @@ def test_push_mutiple_nodes():
     assert test_instance.head.next_node.data == test_instance.tail.previous.previous.data
 
 def test_push_pop():
-    """Testing both pushing and popping nodes to a DoublyLinkedList."""
+    """Testing both pushing and popping nodes on a DoublyLinkedList."""
     test_instance = DoublyLinkedList()
     test_instance.push(4)
-    test_instance.pop(5)
-    assert test_instance.head.next_node.data == test_instance.tail.previous.previous.data
+    popped_head = test_instance.pop()
+    assert popped_head == 4
 
-# def test_pop():
+
+def test_pop():
     """testing for pop method."""
-    # test_instance = DoublyLinkedList([1, 2, 3, 4])
-    # test_instance.pop(4)
-    # or<---
-    # assert test_instance.pop() == "4"
-
-# def test_pop_empty():
-    """Testing for pop node to an empty list."""
-    # test_instance = DoublyLinkedList()
-    # test_instance.head.pop(1)
-    # assert test_instance.tail.data == test_instance.head.data
+    test_instance = DoublyLinkedList([1, 2, 3, 4])
+    test_instance.pop()
+    assert test_instance.head.data == 3
 
 # def test_append_method():
     """Testing for method appending value to a node."""
@@ -75,10 +69,10 @@ def test_push_pop():
 
 #
 # def test_shift_method():
-    test_instance = DoublyLinkedList()
+    # test_instance = DoublyLinkedList()
 #
 # def test_remove_method():
-test_instance = DoublyLinkedList("list")
-search_node = test_instance.search("s")
-test_instance.remove(search_node)
-assert test_instance.head.next_node.data == 'i'
+# test_instance = DoublyLinkedList("list")
+# search_node = test_instance.search("s")
+# test_instance.remove(search_node)
+# assert test_instance.head.next_node.data == 'i'

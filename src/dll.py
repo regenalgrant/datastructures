@@ -37,11 +37,13 @@ class DoublyLinkedList(object):
         if self.tail is None:
             self.tail = new_node
 
-    # def pop(self, data):
-    #     """Creating a pop method from DoublyLinkedList."""
-    #     pop_old_node = self.node
-    #     try:
-    #         self.head = self.head.next_node
-    #     except TypeError:
-    #         raise AttributeError("Cannot pop from empty list")
-    #     return pop_old_node.data
+    def pop(self):
+        """Creating a pop method from DoublyLinkedList."""
+        pop_head = self.head
+        try:
+            self.head.next_node.previous is None
+            self.head = self.head.next_node
+        except AttributeError:
+            self.head is None
+            self.tail is None
+        return pop_head.data
