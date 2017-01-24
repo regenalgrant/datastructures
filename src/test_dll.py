@@ -54,23 +54,26 @@ def test_pop():
     test_instance.pop()
     assert test_instance.head.data == 3
 
-# def test_append_method():
-    """Testing for method appending value to a node."""
-    # test_instance = DoublyLinkedList()
-    # test_instance.append(4)
-    # assert test_instance.append.data == 4
+def test_append_empty_list():
+    """Testing for method appending node to empty list."""
+    test_instance = DoublyLinkedList()
+    test_instance.append(4)
+    assert test_instance.tail.data == 4
 
-# def test_append_to_tail():
-    """Testing for method to append value to the tail."""
-    # test_instance = DoublyLinkedList()
-    # test_instance.append(10)
-    # assert test_instance.append.tail.data == 10
-    # assert test_instance.append.tail is not None
+def test_append_to_existing_list():
+    """Testing for method to append node to the tail of a existing list."""
+    test_instance = DoublyLinkedList({"bob": "her",
+                                      "jack": "danials"})
+    test_instance.append(10)
+    assert test_instance.tail.data == 10
 
-#
-# def test_shift_method():
-    # test_instance = DoublyLinkedList()
-#
+def test_append_single_in_list():
+    """Test append of a node on a tail of a list with one node."""
+    test_instance = DoublyLinkedList({"bob": "hairy"})
+    test_instance.append(4)
+    assert test_instance.tail.data == 4
+# def test_shift_from_empty_list
+# def test_remove(resign tail)
 # def test_remove_method():
 # test_instance = DoublyLinkedList("list")
 # search_node = test_instance.search("s")

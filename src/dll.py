@@ -47,3 +47,14 @@ class DoublyLinkedList(object):
             self.head is None
             self.tail is None
         return pop_head.data
+
+    def append(self, data):
+        """Appending the value at the tail of the list."""
+        new_node = Node(data)
+        new_node.next_node = None
+        new_node.previous = self.tail
+        if self.tail:
+            self.tail.next_node = new_node
+        self.tail = new_node
+        if self.head is None:
+            self.head = new_node
