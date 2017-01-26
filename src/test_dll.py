@@ -115,10 +115,3 @@ def test_remove_single_node_list():
     test_instance = DoublyLinkedList([1])
     test_instance.remove(1)
     assert test_instance.head is None
-
-
-# def test_value_not_present();
-#     """Testing for value in a node."""
-#         with pytest.raises(ValueError) as message:
-#             test_instance = DoublyLinkedList()
-#         assert "Value not present" in str(message)
