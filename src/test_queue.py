@@ -4,13 +4,34 @@ import pytest
 from queue import Queue
 
 
-DATA_TABLE_TEST = ([1, 2, 3, 4])
+DATA_TABLE_TEST = [
+    ([1, 2, 3, 4], 4),
+    ("elephant", "t")
+    ]
 
-def test_queue_init():
+
+@pytest.mark.parametrize("iterable, output", DATA_TABLE_TEST)
+def test_queue_init(iterable, output):
     """Test for initialize queue."""
+    test_queue = Queue(iterable)
+    assert test_queue.dll.head.data == output
 
-def test_enqueue_if_value_added_to_queue(self, value)
-    """Testing value is being added to the queue from the enqueue."""
-    test_instance = Queue([4, 3, 2, 1, 0])
-    test_instance.queue.enqueue(5)
-    assert test_instance.queue.enqueue
+@pytest.mark.parametrize("iterable, output", DATA_TABLE_TEST)
+def test_enqueue_on_extisting_queue(iterable, output):
+    """Testing enqueue on extisting queue."""
+    test_queue = Queue(iterable)
+    test_queue.enqueue(9)
+    assert test_queue.dll.head.data == 9
+
+def test_enqueue_on_empty_queue():
+    """Testing enqueue on empty queue."""
+    test_queue = Queue()
+    test_queue.enqueue(9)
+    assert test_queue.dll.head.data == 9
+
+def test_enqueue_after_enqueue():
+    """Testing enqueue after ennqueue nodes to queue."""
+    test_queue = Queue()
+    test_queue.enqueue(9)
+    test_queue.enqueue(8)
+    assert test_queue.dll.head.data ==  8
