@@ -80,7 +80,7 @@ class DoublyLinkedList(object):
             raise IndexError("Value does not exist in the list")
         if pointer.next_node is None and pointer.previous is None:
             self.head = None
-            return 
+            return
         if pointer.previous is None:
             self.head = pointer.next_node
         if pointer.previous:

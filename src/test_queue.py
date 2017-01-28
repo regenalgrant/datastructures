@@ -35,3 +35,23 @@ def test_enqueue_after_enqueue():
     test_queue.enqueue(9)
     test_queue.enqueue(8)
     assert test_queue.dll.head.data ==  8
+
+def test_dequeue_from_existing_queue():
+    """Testing dequeue removes tail from queue."""
+    test_queue = Queue([1, 2, 3, 4])
+    old_tail = test_queue.dequeue()
+    assert old_tail == 1
+
+# def test_dequeue_from_empty_queue():
+#     """Testing dequeue from an empty queue."""
+#     test_queue = Queue()
+#     with pytest.raises(AttributeError) as message:
+#         test_queue.dequeue()
+#     assert "IndexError: Queue is Empty" in str(message)
+
+def test_dequeue_after_dequeue():
+    """Testing dequeue on queue and test dequeue again."""
+    test_queue = Queue(['w', 'e', 'r'])
+    test_queue.dequeue()
+    old_tail = test_queue.dequeue()
+    assert old_tail == 'e'
