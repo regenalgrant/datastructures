@@ -16,9 +16,22 @@ class Queue(object):
 
     def dequeue(self):
         """Remove tail from the queue."""
-        try:
-            old_tail = self.dll.shift()
-            old_tail = old_tail.data
-        except AttributeError:
+        old_tail = self.dll.shift()
+        if old_tail is None:
             raise IndexError("Queue is Empty")
-        return old_tail
+        return old_tail.data
+
+    def peek(self):
+        """Return the value of the tail node."""
+        if self.dll.tail is None:
+            return
+        return self.dll.tail.data
+
+    # def size(self, data):
+    #     """Size of the queue returning zero."""
+    #     try:
+    #         while data != self.dll.data:
+    #             self.dll = self.dll.next_node
+    #         return self.dll
+    #     except AttributeError:
+    #         return

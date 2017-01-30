@@ -42,12 +42,12 @@ def test_dequeue_from_existing_queue():
     old_tail = test_queue.dequeue()
     assert old_tail == 1
 
-# def test_dequeue_from_empty_queue():
-#     """Testing dequeue from an empty queue."""
-#     test_queue = Queue()
-#     with pytest.raises(AttributeError) as message:
-#         test_queue.dequeue()
-#     assert "IndexError: Queue is Empty" in str(message)
+def test_dequeue_from_empty_queue():
+    """Testing dequeue from an empty queue."""
+    test_queue = Queue()
+    with pytest.raises(IndexError):
+        test_queue.dequeue()
+    assert "IndexError: Queue is Empty" in str(message)
 
 def test_dequeue_after_dequeue():
     """Testing dequeue on queue and test dequeue again."""
@@ -55,3 +55,21 @@ def test_dequeue_after_dequeue():
     test_queue.dequeue()
     old_tail = test_queue.dequeue()
     assert old_tail == 'e'
+
+def test_peek_on_queue():
+    """Test peek on queue."""
+    test_queue = Queue([1, 2, 3, 4])
+    peek_tail_data = test_queue.peek()
+    assert peek_tail_data == test_queue.dll.tail.data
+
+def test_peek_on_empty_queue():
+    """Testing peek on an empty queue."""
+    test_queue = Queue()
+    peek_tail = test_queue.peek()
+    assert peek_tail is None
+
+# def test_size_on_queue():
+#     """Testing size on a queue."""
+#     test_queue = Queue()
+#     test_queue.size()
+#     assert test_queue.dll.size.head.next_node.data == 0
