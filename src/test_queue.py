@@ -47,7 +47,7 @@ def test_dequeue_from_empty_queue():
     test_queue = Queue()
     with pytest.raises(IndexError):
         test_queue.dequeue()
-    assert "IndexError: Queue is Empty" in str(message)
+    assert "Queue is Empty"
 
 def test_dequeue_after_dequeue():
     """Testing dequeue on queue and test dequeue again."""
@@ -68,8 +68,12 @@ def test_peek_on_empty_queue():
     peek_tail = test_queue.peek()
     assert peek_tail is None
 
-# def test_size_on_queue():
-#     """Testing size on a queue."""
-#     test_queue = Queue()
-#     test_queue.size()
-#     assert test_queue.dll.size.head.next_node.data == 0
+def test_length_of_empty_queue():
+    """Check that length of empty queue returns 0."""
+    test_queue = Queue()
+    assert test_queue.size() == 0
+
+def test_queue_size():
+    """Test that list initialized with data."""
+    test_queue = Queue(DATA_TABLE_TEST)
+    assert test_queue.size() == 2

@@ -27,11 +27,11 @@ class Queue(object):
             return
         return self.dll.tail.data
 
-    # def size(self, data):
-    #     """Size of the queue returning zero."""
-    #     try:
-    #         while data != self.dll.data:
-    #             self.dll = self.dll.next_node
-    #         return self.dll
-    #     except AttributeError:
-    #         return
+    def size(self):
+        """Size of the queue returning zero."""
+        count = 0
+        current = self.dll.head
+        while current is not None:
+            count += 1
+            current = current.next_node
+        return count
