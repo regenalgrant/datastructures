@@ -3,6 +3,21 @@ from __future__ import unicode_literals
 import pytest
 from deque import Deque
 
+TEST_DEQUE_DATA = [ [1, 2, 3, 4]
+    ]
+
+@pytest.mark.parametrize("iterable, output", TEST_DEQUE_DATA)
+def test_deque_init(iterable, output):
+    """Test for initialize deque."""
+    test_deque = deque(iterable)
+    assert test_deque.dll.head.data == output
+
+@pytest.mark.parametrize("iterable, output", TEST_DEQUE_DATA)
+def test_enqueue_on_extisting_deque(iterable, output):
+    """Testing enqueue on extisting deque."""
+    test_deque = deque(iterable)
+    test_deque.enqueue(9)
+    assert test_deque.dll.head.data == 9
 
 #---------------------peek---------------------------
 def test_peek_on_deque():
@@ -27,8 +42,8 @@ def test_deque_size():
     test_deque = Deque([1, 2, 3, 4])
     assert test_deque.size() == 4
 #-------------------append----------------------------
-def test_append_value_to_tail():
-    """Testing append a value to the tail of the deque."""
-    test_deque = Deque([1, 2, 3, 4])
-    test_deque.append(5)
-    assert test_deque.append.tail.data() == 5
+# def test_append_to_deque():
+#     """Testing append a value to the tail of the deque."""
+#     test_deque = Deque(TEST_DEQUE_DATA)
+#     test_deque.append.head(5)
+#     assert test_deque.append.head == 5
