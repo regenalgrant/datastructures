@@ -30,4 +30,5 @@ def test_deque_size():
 def test_append_value_to_tail():
     """Testing append a value to the tail of the deque."""
     test_deque = Deque([1, 2, 3, 4])
-    assert test_deque.append() == 5
+    test_deque.append(5)
+    assert test_deque.append.tail.data() == 5
