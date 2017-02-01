@@ -84,4 +84,4 @@ def test_more_size():
     test_queue.enqueue(1)
     test_queue.enqueue(7)
     test_queue.dequeue()
-    assert test_queue.size() == 4
+    assert test_queue.size() == 3
