@@ -64,7 +64,7 @@ class DoublyLinkedList(object):
         shift_tail = self.tail
         try:
             self.tail = self.tail.previous
-            self.tail.next_node is None
+            self.tail.next_node = None
         except AttributeError:
             self.tail = None
             self.head = None

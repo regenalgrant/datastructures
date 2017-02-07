@@ -16,7 +16,7 @@ class Deque(object):
     #
     # def appendleft(self, data):
     #     """Adds a value to the front of the deque."""
-    #     self.dll.append.next_node
+    #     self.dll.append
     #
     # # def pop():
     # #     """Removes a value from the tail of the deque and returns."""
