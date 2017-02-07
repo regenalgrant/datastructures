@@ -1,12 +1,13 @@
-from __future__ import unicode_literals
+"""Testing Link List."""
 import pytest
 from link_list import LinkedList, Node
 
 
 def test_init():
-    """testing for init method of linklist."""
+    """Testing for init method of linklist."""
     test_instance = LinkedList([1, 2, 3, 4])
     assert test_instance.head.data == 4
+
 
 def test_non_iter_init():
     """Testing for non-iterable data."""
@@ -56,12 +57,14 @@ def test_search_value():
     test_node = Node("I")
     assert test_instance.search(test_node.data).data == "I"
 
+
 def test_remove():
     """Testing node being actually removed from the list."""
     test_instance = LinkedList("list")
     search_node = test_instance.search("s")
     test_instance.remove(search_node)
     assert test_instance.head.next_node.data == 'i'
+
 
 def test_remove_head():
     """Testing that node in the head is being removed."""
@@ -70,6 +73,7 @@ def test_remove_head():
     test_instance.remove(search_node)
     assert test_instance.head.data == "s"
 
+
 def test_remove_from_empty_list():
     """Testing for error when trying remove from an empty list."""
     test_instance = LinkedList()
@@ -77,6 +81,7 @@ def test_remove_from_empty_list():
     with pytest.raises(IndexError) as message:
         test_instance.remove(search_node)
     assert "list is empty" in str(message)
+
 
 def test_remove_node_far_head():
     """Testing for a removal of a node that is not close to head."""
@@ -87,6 +92,7 @@ def test_remove_node_far_head():
     test_instance.pop()
     test_instance.pop()
     assert test_instance.head.data == "e"
+
 
 def test_display():
     """Testing display returning a unicode within string."""
