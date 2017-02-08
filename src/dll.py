@@ -47,6 +47,8 @@ class DoublyLinkedList(object):
         except AttributeError:
             self.head is None
             self.tail is None
+            if self.head is None or self.tail is None:
+                return
         return pop_head.data
 
     def append(self, data):
