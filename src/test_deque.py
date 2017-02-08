@@ -68,14 +68,6 @@ def test_appendleft_after_appendleft_on_deque():
     assert test_deque.dll.head.data == ('tring')
 
 
-# @pytest.mark.parametrize("iterable, output", TEST_DEQUE_DATA)
-# def test_enqueue_on_extisting_deque(iterable, output):
-#     """Testing enqueue on extisting deque."""
-#     test_deque = Deque(iterable)
-#     test_deque.enqueue(9)
-#     assert test_deque.dll.head.data == 9
-
-
 #  ---------------------pop-------------------
 
 
@@ -109,7 +101,7 @@ def test_pop_after_pop():
     assert test_deque.dll.tail.data == 3
 
 
-#  ---------------------pop--------------------
+#  ---------------------popleft-----------------
 
 
 def test_popleft_existing_deque():
@@ -167,15 +159,18 @@ def test_length_of_empty_deque():
     test_deque = Deque()
     assert test_deque.size() == 0
 
+
 def test_deque_size():
     """Test that list initialized with data."""
     test_deque = Deque([1, 2, 3, 4])
     assert test_deque.size() == 4
 
+
 def test_length_of_existing_deque():
     """Check that length of existing deque returns 0."""
     test_deque = Deque([1, 2, 3, 4, 5])
     assert test_deque.size() == 5
+
 
 def test_peek_after_pop():
     """Testing peek method after pop."""
