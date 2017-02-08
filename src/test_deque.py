@@ -43,6 +43,9 @@ def test_append_after_append_on_deque():
     assert test_deque.dll.tail.data == ('z')
 
 
+#  ----------------appendleft-------------------
+
+
 def test_appendleft_to_existing_deque():
     """Testing a value added to the front of deque."""
     test_deque = Deque([1, 2, 4, 4])
@@ -106,6 +109,9 @@ def test_pop_after_pop():
     assert test_deque.dll.tail.data == 3
 
 
+#  ---------------------pop--------------------
+
+
 def test_popleft_existing_deque():
     """Testing popleft method on a existing deque."""
     test_deque = Deque([1, 2, 3, 5])
@@ -113,14 +119,23 @@ def test_popleft_existing_deque():
     assert popleft_value == 5
 
 
-def test_popleft_after_popleft_on_deque():
-    """Testing popleft after appending to deque."""
+def test_popleft_empty_deque():
+    """Testing popleft empty deque."""
     test_deque = Deque()
     with pytest.raises(IndexError) as message:
         test_deque.popleft()
     assert "Deque is Empty" in str(message)
 
-#  ---------------------peek--------------------
+
+def test_popleft_after_popleft_on_deque():
+    """Testing popleft after appending to deque."""
+    test_deque = Deque([1, 2, 3, 5])
+    test_deque.popleft()
+    test_deque.popleft()
+    assert test_deque.dll.head.data == 2
+
+
+#  ---------------------peek-------------------
 
 
 def test_peek_on_deque():
@@ -130,12 +145,22 @@ def test_peek_on_deque():
     assert peek_tail_data == test_deque.dll.tail.data
 
 
-#
-# def test_peek_on_empty_deque():
-#     """Testing peek on an empty deque."""
-#     test_deque = Deque()
-#     peek_tail = test_deque.peek()
-#     assert peek_tail is None
+def test_peek_on_empty_deque():
+    """Testing peek on an empty deque."""
+    test_deque = Deque()
+    peek_tail = test_deque.peek()
+    assert peek_tail is None
+
+
+def test_peek_existing_deque():
+    """Testing peek method on a existing deque."""
+    test_deque = Deque([1, 2, 3, 5])
+    peek_value = test_deque.peek
+    assert peek_value is None
+
+
+
+
 # # ------------------size------------------------------
 # def test_length_of_empty_deque():
 #     """Check that length of empty deque returns 0."""
