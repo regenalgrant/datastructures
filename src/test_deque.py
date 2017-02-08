@@ -155,19 +155,30 @@ def test_peek_on_empty_deque():
 def test_peek_existing_deque():
     """Testing peek method on a existing deque."""
     test_deque = Deque([1, 2, 3, 5])
-    peek_value = test_deque.peek
-    assert peek_value is None
+    peek_value = test_deque.peek()
+    assert peek_value == 1
 
 
+# ------------------size------------------------------
 
 
-# # ------------------size------------------------------
-# def test_length_of_empty_deque():
-#     """Check that length of empty deque returns 0."""
-#     test_deque = Deque()
-#     assert test_deque.size() == 0
-#
-# def test_deque_size():
-#     """Test that list initialized with data."""
-#     test_deque = Deque([1, 2, 3, 4])
-#     assert test_deque.size() == 4
+def test_length_of_empty_deque():
+    """Check that length of empty deque returns 0."""
+    test_deque = Deque()
+    assert test_deque.size() == 0
+
+def test_deque_size():
+    """Test that list initialized with data."""
+    test_deque = Deque([1, 2, 3, 4])
+    assert test_deque.size() == 4
+
+def test_length_of_existing_deque():
+    """Check that length of existing deque returns 0."""
+    test_deque = Deque([1, 2, 3, 4, 5])
+    assert test_deque.size() == 5
+
+def test_peek_after_pop():
+    """Testing peek method after pop."""
+    test_deque = Deque([1, 2, 3, 5])
+    test_deque.pop()
+    assert test_deque.peek() == 2

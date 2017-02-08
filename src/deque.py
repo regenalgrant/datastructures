@@ -42,11 +42,11 @@ class Deque(object):
     # def peek_left():
     #     Next value that would be returned by popleft
 
-    # def size(self):
-    #     """Size of the deque returning zero."""
-    #     count = 0
-    #     current = self.dll.head
-    #     while current is not None:
-    #         count += 1
-    #         current = current.next_node
-    #     return count
+    def size(self):
+        """Size of the deque returning zero."""
+        count = 0
+        current = self.dll.head
+        while current is not None:
+            count += 1
+            current = current.next_node
+        return count
