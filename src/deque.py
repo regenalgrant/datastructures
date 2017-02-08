@@ -39,8 +39,11 @@ class Deque(object):
             return
         return self.dll.tail.data
 
-    # def peek_left():
-    #     Next value that would be returned by popleft
+    def peekleft(self):
+        """Next value that would be returned by popleft."""
+        if self.dll.head is None:
+            return
+        return self.dll.head.data
 
     def size(self):
         """Size of the deque returning zero."""
