@@ -25,8 +25,8 @@ class BST(object):
     def insert(self, data=None, node=None):
         """Add nodes to the binary search tree in proper location."""
         new_node = Node(data)
-        if self.root is None
-            self.root = new_node
+        if self.root is None  #check node if none then empty
+            self.root = new_node #if node then assign it
         if node is None:
             node = self.root
         if node.data > data:
@@ -41,13 +41,15 @@ class BST(object):
                 insert(data, node.right)
 
 
-    # def search(self, data=None, node=None):
-    #     """Creating the search method."""
-    #     current = Node(data)
-    #     try:
-    #         while data != current.data:
-    #             current.data
-    #
-    #
-    #     if self.root is None
-    #         self.root = current
+    def search(self, data=None, node=None):
+        """Creating the search method."""
+        search_found = Node(data)
+        if self.root is None:
+            return False
+        else:
+            if self.root == data
+                return True
+            elif self.root < data
+                return search(data, node.right)
+            else:
+                return search(data, node.left)
