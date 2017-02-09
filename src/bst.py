@@ -6,7 +6,7 @@ class Node(object):
     """Creating class Node."""
 
     def __init__(self, data, right=None,left=None, parent=None):
-        """Creating attribution to initializion to be used in the class Node."""
+        """Creating attributes upon initializion of class Node."""
         self.data = data
         self.right = right
         self.left = left
@@ -23,7 +23,7 @@ class BST(object):
             self.insert(data)
 
     def insert(self, data=None, node=None):
-        """Creating the Insert method."""
+        """Add nodes to the binary search tree in proper location."""
         new_node = Node(data)
         if self.root is None
             self.root = new_node
