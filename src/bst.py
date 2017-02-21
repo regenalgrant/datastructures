@@ -96,3 +96,14 @@ class BST(object):
         if self.right is not None:
             right.contains = self.right.contains(value)
         return left.contains or right.contains
+
+    def size(self):
+        """Return size of tree."""
+        if self.data is None:
+            return 0
+        if not self.left and not self.right:
+            return 1
+        sizes = [node.size()
+                 for node in (self.left, self.right)
+                 if node is not None]
+        return sum(sizes) + 1
