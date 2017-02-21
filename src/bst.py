@@ -97,8 +97,9 @@ class BST(object):
             right.contains = self.right.contains(value)
         return left.contains or right.contains
 
+
     def size(self):
-        """Return size of tree."""
+        """Create return size of tree."""
         if self.data is None:
             return 0
         if not self.left and not self.right:
@@ -107,3 +108,15 @@ class BST(object):
                  for node in (self.left, self.right)
                  if node is not None]
         return sum(sizes) + 1
+
+
+    def depth(self):
+        """Create return number of levels in the tree."""
+        if self.data is None:
+            return 0
+        if not self.left and not self.right:
+            return 1
+        depths = [node.depth()
+                  for node in (self.left, self.right)
+                  if node is not None]
+        return max(depths) + 1
