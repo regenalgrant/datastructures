@@ -4,6 +4,8 @@
 from  collections import deque
 
 
+
+
 class Node(object):
     """Creating class Node."""
 
@@ -24,6 +26,7 @@ class BST(object):
         for item in data:
             self.insert(data)
 
+
     def insert(self, data=None, node=None):
         """Add nodes to the binary search tree in proper location."""
         new_node = Node(data)
@@ -42,6 +45,7 @@ class BST(object):
             else:
                 self.insert(data, node.right)
 
+
     def search(self, data=None, node=None):
         """Creating the search method."""
         search_found = Node(data)
@@ -52,7 +56,8 @@ class BST(object):
                 return True
                 self.root = search_found
 
-     def contains(self, value):
+
+    def contains(self, value):
         """Return True if value in tree."""
         if self.value == value:
             return True
