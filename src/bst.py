@@ -1,6 +1,8 @@
 """Implementing BST"""
 # -*- coding: utf-8 -*-
 
+from  collections import deque
+
 
 class Node(object):
     """Creating class Node."""
@@ -25,7 +27,7 @@ class BST(object):
     def insert(self, data=None, node=None):
         """Add nodes to the binary search tree in proper location."""
         new_node = Node(data)
-        if self.root is None  #check node if none then empty
+        if self.root is None:  #check node if none then empty
             self.root = new_node #if node then assign it
         if node is None:
             node = self.root
@@ -33,23 +35,31 @@ class BST(object):
             if node.left is None:
                 node.left = new_node
             else:
-                insert(data, node.left)
+                self.insert(data, node.left)
         if node.data < data:
             if node.right is None:
                 node.right = new_node
             else:
-                insert(data, node.right)
-
+                self.insert(data, node.right)
 
     def search(self, data=None, node=None):
         """Creating the search method."""
         search_found = Node(data)
         if self.root is None:
-            return False
+            return None
         else:
-            if self.root == data
+            if self.root < data:
                 return True
-            elif self.root < data
-                return search(data, node.right)
-            else:
-                return search(data, node.left)
+                self.root = search_found
+
+     def contains(self, value):
+        """Return True if value in tree."""
+        if self.value == value:
+            return True
+        left.contains = False
+        right.contains = False
+        if self.left is not None:
+            left.contains = self.left.contains(value)
+        if self.right is not None:
+            right.contains = self.right.contains(value)
+        return left.contains or right.contains
