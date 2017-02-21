@@ -1,9 +1,6 @@
-"""Implementing BST"""
+"""Implementing BST."""
 # -*- coding: utf-8 -*-
-
-from  collections import deque
-
-
+from collections import deque
 
 
 class Node(object):
@@ -120,3 +117,14 @@ class BST(object):
                   for node in (self.left, self.right)
                   if node is not None]
         return max(depths) + 1
+
+
+    def balance(self):
+        """Creating number expressing balance tree."""
+        left_depth = 0
+        right_depth = 0
+        if self.left is not None:
+            left_depth = self.left.depth()
+        if self.right is not None:
+            right_depth = self.right.depth()
+        return left_depth - right_depth
