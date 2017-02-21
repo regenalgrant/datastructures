@@ -48,3 +48,10 @@ def instance():
     def test_contains_false(instance):
         """Test false example for contains method."""
         assert not instance.contains(1000)
+
+
+    def test_balance_left(instance2):
+        """Test balance method on left-unbalanced tree."""
+        test.instance.insert(3)
+        test.instance.insert(2)
+        assert test.instance.balance() == 1

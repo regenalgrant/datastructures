@@ -27,6 +27,34 @@ class BST(object):
             self.insert(data)
 
 
+    @property
+    def left(self):
+        """Left."""
+        return self.left
+
+
+    @left.setter
+    def left(self, node):
+        """Set construct for left."""
+        self.left = node
+        if node is not None:
+            node.parent = self
+
+
+    @property
+    def right(self):
+        """Right."""
+        return self.right
+
+
+    @right.setter
+    def right(self, node):
+        """Set construct for right."""
+        self.right = node
+        if node is not None:
+            node.parent = self
+
+
     def insert(self, data=None, node=None):
         """Add nodes to the binary search tree in proper location."""
         new_node = Node(data)
