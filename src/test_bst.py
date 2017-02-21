@@ -6,7 +6,7 @@ import pytest
 
 @pytest.fixture
 def empty_instance():
-    """Empty tree fixture."""
+    """Empty root fixture."""
     root = BST()
     return root
 
@@ -18,3 +18,8 @@ def instance():
     for n in range(20):
         root.insert(n)
     return root
+
+
+    def test_new_root(instance):
+        """Test that our root is a root."""
+        assert isinstance(instance, BST)
