@@ -25,13 +25,13 @@ class BST(object):
             raise TypeError("Can't init with a non iterable.")
 
 
-    def insert(self, value):
-        """Insert value to binary search tree."""
-        if self.root:
-            self._insert(value, self.root)
-        else:
-            self.root = Node(value)
-            self._size += 1
+def insert(self, value):
+    """Insert value to binary search tree."""
+    if self.root:
+        self._insert(value, self.root)
+    else:
+        self.root = Node(value)
+        self._size += 1
 
 
 def _insert(self, value, node):
@@ -82,8 +82,7 @@ def _depth(self, node):
     if node is None:
         return 0
     else:
-        return max(self._depth(node.left_child),
-        self._depth(node.right_child)) + 1
+        return max(self._depth(node.left_child), self._depth(node.right_child)) + 1
 
 
 def contains(self, value):
@@ -122,7 +121,7 @@ if __name__ == "__main__":
     balanced = BST(value)
     unbalanced = BST(sorted(value))
 
-    balance = timeit.timeit(
+    bal = timeit.timeit(
         stmt="balanced.search(75)",
         setup="from __main__ import balanced",
         number=1000
@@ -132,4 +131,4 @@ if __name__ == "__main__":
         setup="from __main__ import unbalanced",
         number=1000
     ) * 1000
-    print("It takes {} SI to find 75 in a balanced tree, and {} SI to find 75 in an unbalanced tree".format(balance, unbalance))
+    print("It takes {} SI to find 75 in a balanced tree, and {} SI to find 75 in an unbalanced tree".format(bal, unbalance))
