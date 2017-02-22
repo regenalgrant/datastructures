@@ -19,3 +19,16 @@ class PriorityQueue:
         else:
             self.dict[priority] = [data]
         print(self.dict)
+
+
+    def pop(self):
+        """Priority Queue pop method."""
+        if len(self.dict):
+            cursor = 0
+            while cursor not in self.dict:
+                cursor += 1
+            next_node = self.dict[cursor][0]
+            self.dict[cursor] = self.dict[cursor][1:]
+            return next_node
+        else:
+            raise IndexError("The Priority Queue is empty")
