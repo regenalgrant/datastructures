@@ -28,6 +28,33 @@ class BST(object):
             except TypeError:
                 self.insert(iterable)
 
+    def _insert_node(self, new_node):
+            """Insert a new node. <new_node> must be an instance of Node."""
+            parent = self
+            visited_nodes = [self]
+            while True:
+                if parent.value == new_node.value:
+                    break
+                if new_node.value > parent.value:
+                    if parent.right is None:
+                        parent.right = new_node
+                        while len(visited_nodes) != 0:
+                            visited_node = visited_nodes.pop()
+                            visited_node.depth = visited_node.find_depth()
+                        break
+                    else:
+                        parent = parent.right
+                        visited_nodes.append(parent)
+                elif new_node.value < parent.value:
+                    if parent.left is None:
+                        parent.left = new_node
+                        while len(visited_nodes) != 0:
+                            visited_node = visited_nodes.pop()
+                            visited_node.depth = visited_node.find_depth()
+                        break
+                    else:
+                        parent = parent.left
+                        visited_nodes.append(parent)
 
 
     def balance(self):
