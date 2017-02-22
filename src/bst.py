@@ -45,23 +45,23 @@ class BST(object):
                 node.left_child = self
         else:
             raise TypeError
-    #
-    # @property
-    # def left(self):
-    #     """left."""
-    #     return self.left_child
-    #
-    #
+
+    @property
+    def left(self):
+        """left."""
+        return self.left_child
+
+
     def left(self, node):
         """Set construct for left_child."""
         return self.left_child.left() if self.left_child else self
-    #
-    #
-    # @property
-    # def right_child(self):
-    #     """right_child."""
-    #     return self.right_child
-    #
+
+
+    @property
+    def right(self):
+        """right."""
+        return self.right_child
+
     #
     # @right_child.setter
     # def right_child(self, node):
@@ -69,27 +69,7 @@ class BST(object):
     #     self.right_child = node
     #     if node is not None:
     #         node.parent = self
-    #
-    #
-    # def insert(self, data=None, node=None):
-    #     """Add nodes to the binary search tree in proper location."""
-    #     new_node = Node(data)
-    #     if self.root is None:  #check node if none then empty
-    #         self.root = new_node #if node then assign it
-    #     if node is None:
-    #         node = self.root
-    #     if node.data > data:
-    #         if node.left_child is None:
-    #             node.left_child = new_node
-    #         else:
-    #             self.insert(data, node.left_child)
-    #     if node.data < data:
-    #         if node.right_child is None:
-    #             node.right_child = new_node
-    #         else:
-    #             self.insert(data, node.right_child)
-    #
-    #
+
     # def search(self, data=None, node=None):
     #     """Creating the search method."""
     #     search_found = Node(data)
@@ -100,27 +80,30 @@ class BST(object):
     #             return True
     #             self.root = search_found
 
-    def size(self):
-        """Return size property of tree."""
-        return self.size
+    # def size(self):
+    #     """Return size property of tree."""
+    #     return self.size
+    #
+    #
+    # def depth(self):
+    #     """Create return number of levels in the tree."""
+    #     left_child.depth = self.left_child_child.depth() if self.left_child else 0
+    #     right_child.depth = self.right_child.depth() if self.right_child else 0
+    #     return 1 + max(left_depth, right_child.depth)
 
 
-    def depth(self):
-        """Create return number of levels in the tree."""
-        left_child.depth = self.left_child_child.depth() if self.left_child else 0
-        right_child.depth = self.right_child.depth() if self.right_child else 0
-        return 1 + max(left_depth, right_child.depth)
-
-
-    # def balance(self):
-    #     """Creating number expressing balance tree."""
-    #     left_depth = 0
-    #     right_depth = 0
-    #     if self.left_child is not None:
-    #         left_depth = self.left.depth()
-    #     if self.right_child is not None:
-    #         right_depth = self.right_child.depth()
-    #     return left_depth - right_depth
+    def balance(self):
+        """Creating number expressing balance tree."""
+        left_weight = self.left_child._depth() if self.left_child else 0
+        right_weight = self.right_child._depth() if self.right_child else 0
+        return left_weight - right_weight
+        if node:
+           current_balance = node.balance()
+           if current_balance > 1 or current_balance < -1:
+              self.reconfig_balance(node)
+        elif node.parent and node.parent.balance() != 0:
+            self.check_balance(node.parent)
+        return self.root.balance() if self.root else 0
 
 
 # if __name__ == "__main__":

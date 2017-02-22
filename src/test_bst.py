@@ -57,43 +57,43 @@ def empty_bst():
 
 # --------------------contains----------------
 
-    def test_empty_tree_contains(empty_bst):
-        assert not empty_bst.contains(5)
-
-
-    def test_contains(empty_bst):
-        """Assert that tree contains nodes."""
-        empty_bst.insert(4)
-        assert empty_bst.contains(4)
-
-
-    def test_contains_more_nodes(empty_bst):
-        """Assert that tree contains nodes."""
-        empty_bst.insert(4)
-        empty_bst.insert(2)
-        empty_bst.insert(3)
-        empty_bst.insert(1)
-        assert empty_bst.contains(4)
-        assert empty_bst.contains(2)
-        assert empty_bst.contains(3)
-        assert empty_bst.contains(1)
-
-
-    def test_contains_is_false(empty_bst):
-        """Assert that tree does not contain nodes."""
-        empty_bst.insert(4)
-        empty_bst.insert(2)
-        empty_bst.insert(3)
-        empty_bst.insert(1)
-        assert not empty_bst.contains(7)
-
-
-    def test_contains_is_false_B(empty_bst):
-        """Assert that tree does not contain value."""
-        empty_bst.insert(4)
-        empty_bst.insert(7)
-        empty_bst.insert(6)
-        assert not empty_bst.contains(3)
+    # def test_empty_tree_contains(empty_bst):
+    #     assert not empty_bst.contains(5)
+    #
+    #
+    # def test_contains(empty_bst):
+    #     """Assert that tree contains nodes."""
+    #     empty_bst.insert(4)
+    #     assert empty_bst.contains(4)
+    #
+    #
+    # def test_contains_more_nodes(empty_bst):
+    #     """Assert that tree contains nodes."""
+    #     empty_bst.insert(4)
+    #     empty_bst.insert(2)
+    #     empty_bst.insert(3)
+    #     empty_bst.insert(1)
+    #     assert empty_bst.contains(4)
+    #     assert empty_bst.contains(2)
+    #     assert empty_bst.contains(3)
+    #     assert empty_bst.contains(1)
+    #
+    #
+    # def test_contains_is_false(empty_bst):
+    #     """Assert that tree does not contain nodes."""
+    #     empty_bst.insert(4)
+    #     empty_bst.insert(2)
+    #     empty_bst.insert(3)
+    #     empty_bst.insert(1)
+    #     assert not empty_bst.contains(7)
+    #
+    #
+    # def test_contains_is_false_B(empty_bst):
+    #     """Assert that tree does not contain value."""
+    #     empty_bst.insert(4)
+    #     empty_bst.insert(7)
+    #     empty_bst.insert(6)
+    #     assert not empty_bst.contains(3)
 
     # def test_contains_false_negative(instance):
     #     """Test false example for contains method."""
@@ -107,9 +107,9 @@ def empty_bst():
     #     assert test.instance_root.balance() == 1
     #
     #
-    def test_balance(instance_root):
+    def test_balance(instance_bst):
         """Test balance method on right_child-unbalanced tree."""
-        assert test_instance_root.balance() == -1
+        assert test_instance_bst.balance() == -1
     #
     #
     # def test_balance_balanced(instance_root):
@@ -117,36 +117,36 @@ def empty_bst():
     #     test.instance_root.insert(3)
     #     assert test.instance_root.balance() == 0
     #
-    # def test_balance_ext_right_child(instance):
-    #     """Test balance method on extreme-unbalanced tree."""
+    # def test_balance_right_child(instance):
+    #     """Test balance method on unbalanced tree."""
     #     assert instance.balance() == - 19
 
 
 #------------------depth---------------------
-
-    def test_empty_tree_depth(empty_bst):
-        assert empty_bst.depth() == 0
-
-    def test_depth(empty_bst):
-        """Assert that calling depth returns maximum depth of tree."""
-        empty_bst.insert(4)
-        assert empty_bst.depth() == 1
-        empty_bst.insert(2)
-        assert empty_bst.depth() == 2
-        empty_bst.insert(5)
-        assert empty_bst.depth() == 2
-        empty_bst.insert(6)
-        empty_bst.insert(7)
-        empty_bst.insert(8)
-        empty_bst.insert(9)
-        empty_bst.insert(3)
-        empty_bst.insert(20)
-        assert empty_bst.depth() == 4
-
-    def test_bst_fixture_depth(bst_root):
-        assert bst_root.root.value == 50
-        assert bst_root.depth() == 3
-#------------------size---------------------
-
-    def test_empty_tree_size(empty_bst):
-        assert empty_bst.size() == 0
+#
+#     def test_empty_tree_depth(empty_bst):
+#         assert empty_bst.depth() == 0
+#
+#     def test_depth(empty_bst):
+#         """Assert that calling depth returns maximum depth of tree."""
+#         empty_bst.insert(4)
+#         assert empty_bst.depth() == 1
+#         empty_bst.insert(2)
+#         assert empty_bst.depth() == 2
+#         empty_bst.insert(5)
+#         assert empty_bst.depth() == 2
+#         empty_bst.insert(6)
+#         empty_bst.insert(7)
+#         empty_bst.insert(8)
+#         empty_bst.insert(9)
+#         empty_bst.insert(3)
+#         empty_bst.insert(20)
+#         assert empty_bst.depth() == 4
+#
+#     def test_bst_fixture_depth(bst_root):
+#         assert bst_root.root.value == 50
+#         assert bst_root.depth() == 3
+# #------------------size---------------------
+#
+#     def test_empty_tree_size(empty_bst):
+#         assert empty_bst.size() == 0
