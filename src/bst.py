@@ -28,8 +28,9 @@ class BST(object):
             except TypeError:
                 self.insert(iterable)
 
+
     def _insert_node(self, new_node):
-            """Insert a new node. <new_node> must be an instance of Node."""
+            """Insert a new node new node must be an instance of Node."""
             parent = self
             visited_nodes = [self]
             while True:
@@ -71,6 +72,17 @@ class BST(object):
             right_depth = 0
         return left_depth - right_depth
 
+
+    def contains(self, value):
+    """Value in the bst if False."""
+    new_node = Node(value)
+    if self.head is None:
+        return False
+    else:
+        if new_node._compare_nodes(self.head):
+            return True
+        else:
+            return False
 
 # if __name__ == "__main__":
 #     data = random.sample(range(1000), 100)
