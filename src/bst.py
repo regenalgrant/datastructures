@@ -24,3 +24,30 @@ class BST(object):
                 self.insert(i)
         elif iterable:
             raise TypeError("Can't init with a non iterable."
+
+
+    def insert(self, value):
+        """Insert value into the binary search tree."""
+        if self.root:
+            self._insert(value, self.root)
+        else:
+            self.root = Node(value)
+            self._size += 1
+
+
+
+    def _insert(self, value, node):
+        if value == node.value:
+            pass
+        elif value > node.value:
+            if node.right_child:
+                self._insert(value, node.right_child)
+            else:
+                node.right_child = Node(value)
+                self._size += 1
+        else:
+            if node.left_child:
+                self._insert(value, node.left_child)
+            else:
+                node.left_child = Node(value)
+                self._size += 1
