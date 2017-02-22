@@ -15,7 +15,7 @@ class Deque(object):
         """Appending the value at the tail of the deque."""
         self.dll.append(data)
 
-    def appendleft(self, data):
+    def appendleft_child(self, data):
         """Add a value to the front of the deque."""
         self.dll.push(data)
 
@@ -26,7 +26,7 @@ class Deque(object):
             raise IndexError("Deque is Empty")
         return old_tail.data
 
-    def popleft(self):
+    def popleft_child(self):
         """Remove a value from the front of the deque and returns."""
         old_head_value = self.dll.pop()
         if old_head_value is None:
@@ -39,8 +39,8 @@ class Deque(object):
             return
         return self.dll.tail.data
 
-    def peekleft(self):
-        """Next value that would be returned by popleft."""
+    def peekleft_child(self):
+        """Next value that would be returned by popleft_child."""
         if self.dll.head is None:
             return
         return self.dll.head.data

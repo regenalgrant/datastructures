@@ -43,28 +43,28 @@ def test_append_after_append_on_deque():
     assert test_deque.dll.tail.data == ('z')
 
 
-#  ----------------appendleft-------------------
+#  ----------------appendleft_child-------------------
 
 
-def test_appendleft_to_existing_deque():
+def test_appendleft_child_to_existing_deque():
     """Testing a value added to the front of deque."""
     test_deque = Deque([1, 2, 4, 4])
-    test_deque.appendleft([1, 2, 3, 5])
+    test_deque.appendleft_child([1, 2, 3, 5])
     assert test_deque.dll.head.data == ([1, 2, 3, 5])
 
 
-def test_appendleft_to_empty_deque():
+def test_appendleft_child_to_empty_deque():
     """Testing a value added to the front of a empty deque."""
     test_deque = Deque()
-    test_deque.appendleft([1, 2, 3, 5])
+    test_deque.appendleft_child([1, 2, 3, 5])
     assert test_deque.dll.head.data == ([1, 2, 3, 5])
 
 
-def test_appendleft_after_appendleft_on_deque():
-    """Testing appendleft after appending to deque."""
+def test_appendleft_child_after_appendleft_child_on_deque():
+    """Testing appendleft_child after appending to deque."""
     test_deque = Deque()
-    test_deque.appendleft('s')
-    test_deque.appendleft('tring')
+    test_deque.appendleft_child('s')
+    test_deque.appendleft_child('tring')
     assert test_deque.dll.head.data == ('tring')
 
 
@@ -101,29 +101,29 @@ def test_pop_after_pop():
     assert test_deque.dll.tail.data == 3
 
 
-#  ---------------------popleft-----------------
+#  ---------------------popleft_child-----------------
 
 
-def test_popleft_existing_deque():
-    """Testing popleft method on a existing deque."""
+def test_popleft_child_existing_deque():
+    """Testing popleft_child method on a existing deque."""
     test_deque = Deque([1, 2, 3, 5])
-    popleft_value = test_deque.popleft()
-    assert popleft_value == 5
+    popleft_child_value = test_deque.popleft_child()
+    assert popleft_child_value == 5
 
 
-def test_popleft_empty_deque():
-    """Testing popleft empty deque."""
+def test_popleft_child_empty_deque():
+    """Testing popleft_child empty deque."""
     test_deque = Deque()
     with pytest.raises(IndexError) as message:
-        test_deque.popleft()
+        test_deque.popleft_child()
     assert "Deque is Empty" in str(message)
 
 
-def test_popleft_after_popleft_on_deque():
-    """Testing popleft after appending to deque."""
+def test_popleft_child_after_popleft_child_on_deque():
+    """Testing popleft_child after appending to deque."""
     test_deque = Deque([1, 2, 3, 5])
-    test_deque.popleft()
-    test_deque.popleft()
+    test_deque.popleft_child()
+    test_deque.popleft_child()
     assert test_deque.dll.head.data == 2
 
 
@@ -151,20 +151,20 @@ def test_peek_existing_deque():
     assert peek_value == 1
 
 
-# ------------------peekleft--------------------------
+# ------------------peekleft_child--------------------------
 
 
-def test_peekleft_existing_deque():
-    """Test peekleft on a existing deque."""
+def test_peekleft_child_existing_deque():
+    """Test peekleft_child on a existing deque."""
     test_deque = Deque([1, 2, 3, 5])
-    peek_value = test_deque.peekleft()
+    peek_value = test_deque.peekleft_child()
     assert peek_value == 5
 
 
-def test_peekleft_empty_deque():
-    """Test peekleft on an empty deque."""
+def test_peekleft_child_empty_deque():
+    """Test peekleft_child on an empty deque."""
     test_deque = Deque()
-    peek_value = test_deque.peekleft()
+    peek_value = test_deque.peekleft_child()
     assert peek_value is None
 
 
