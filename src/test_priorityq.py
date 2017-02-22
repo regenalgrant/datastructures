@@ -17,3 +17,11 @@ def test_pop_empty():
     test_instance = PriorityQueue()
     with pytest.raises(IndexError):
         test_instance.pop()
+
+
+def test_pop():
+    """Test pop method."""
+    from priorityq import PriorityQueue
+    test_instance = PriorityQueue()
+    test_instance.insert('data', 1)
+    assert test_instance.pop() == ('data')
