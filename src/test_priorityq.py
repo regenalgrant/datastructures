@@ -51,3 +51,13 @@ def test_peek():
     test_instance = PriorityQueue()
     test_instance.insert('data', 1)
     assert test_instance.peek() == "data"
+
+
+def test_peek_multiple():
+    """Test correct value PriorityQ using multiple values."""
+    from priorityq import PriorityQueue
+    test_instance = PriorityQueue()
+    test_instance.insert('data_one', 1)
+    test_instance.insert('data_two', 2)
+    test_instance.insert('data_three', 3)
+    assert test_instance.peek() == "data_one"
