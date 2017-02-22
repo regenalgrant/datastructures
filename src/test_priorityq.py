@@ -9,3 +9,11 @@ def test_insert():
     test_instance = PriorityQueue()
     test_instance.insert('data', 1)
     assert test_instance.dict[1] == ['data']
+
+
+def test_pop_empty():
+    """Test pop from empty PQ raises index error."""
+    from priorityq import PriorityQueue
+    test_instance = PriorityQueue()
+    with pytest.raises(IndexError):
+        test_instance.pop()
