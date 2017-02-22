@@ -32,3 +32,12 @@ class PriorityQueue:
             return next_node
         else:
             raise IndexError("The Priority Queue is empty")
+
+
+    def peek(self):
+        """Priority Queue peek method."""
+        if len(self.dict):
+            important = self.dict[min(self.dict.keys())][0]
+            return important
+        else:
+            raise IndexError('The Priority Queue is empty')
