@@ -73,6 +73,11 @@ class BST(object):
         return left_depth - right_depth
 
 
+    def size(self):
+        """Zero if the bst is empty."""
+        return self.counter
+
+
     def contains(self, value):
     """Value in the bst if False."""
     new_node = Node(value)
@@ -83,6 +88,11 @@ class BST(object):
             return True
         else:
             return False
+
+
+def depth(self):
+    """Total depth levels in a tree."""
+    return self.head.depth
 
 # if __name__ == "__main__":
 #     data = random.sample(range(1000), 100)
