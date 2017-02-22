@@ -1,5 +1,5 @@
 """An implementation of a binary search tree."""
-
+from deque import Deque
 
 
 class Node(object):
@@ -50,4 +50,21 @@ class BST(object):
                 self._insert(value, node.left_child)
             else:
                 node.left_child = Node(value)
-                self._size += 1
+                self._size += 
+
+
+    def _search(self, value, node):
+            if node.value == value:
+                return node
+            elif value > node.value:
+                if node.right_child:
+                    return self._search(value, node.right_child)
+                else:
+                    return None
+            else:
+                if node.left_child:
+                    return self._search(value, node.left_child)
+                else:
+                    return None
+
+
