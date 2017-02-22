@@ -25,3 +25,13 @@ def test_pop():
     test_instance = PriorityQueue()
     test_instance.insert('data', 1)
     assert test_instance.pop() == ('data')
+
+
+def test_pop_multiple():
+    """Test correct value returned from PriorityQ."""
+    from priorityq import PriorityQueue
+    test_instance = PriorityQueue()
+    test_instance.insert('data_one', 1)
+    test_instance.insert('data_two', 2)
+    test_instance.insert('data_three', 3)
+    assert test_instance.pop() == "data_one"
