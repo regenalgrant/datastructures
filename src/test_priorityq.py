@@ -35,3 +35,11 @@ def test_pop_multiple():
     test_instance.insert('data_two', 2)
     test_instance.insert('data_three', 3)
     assert test_instance.pop() == "data_one"
+
+
+def test_peek_empty():
+    """Test peek empty PriorityQ raises index error."""
+    from priorityq import PriorityQueue
+    test_instance = PriorityQueue()
+    with pytest.raises(IndexError):
+        test_instance.peek()
