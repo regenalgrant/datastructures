@@ -64,6 +64,8 @@ class Bst(object):
             insert_child.insert(value)
         self.rebalance()
 
+#--------------trie-------------------------
+
     def rebalance(self):
         """Rotate in place as necessary to ensure tree is balanced."""
         new_balance = self.balance()
@@ -105,6 +107,8 @@ class Bst(object):
         pivot.left_child, pivot.right_child = floater, other_node
 
         self.right_child = pivot
+
+#-------------------bst------------------------------
 
     def _search(self, value):
         """Search for value in tree."""
@@ -207,6 +211,7 @@ class Bst(object):
                 child.delete(value)
         self.rebalance()
 
+#------------------timit-----------------------------
 
 if __name__ == "__main__":
     values = random.sample(range(1000), 100)
@@ -223,5 +228,5 @@ if __name__ == "__main__":
         timescores.append((delta, search_val))
 
     timescores.sort()
-    print("The fastest search took {} seconds for {}".format(*timescores[0]))
-    print("The slowest search took {} seconds for {}".format(*timescores[-1]))
+    print("The fastest search in {} seconds for {}".format(*timescores[0]))
+    print("The slowest search in {} seconds for {}".format(*timescores[-1]))
