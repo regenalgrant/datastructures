@@ -22,3 +22,11 @@ def test_empty_list():
     alist = []
     radix_sort(alist)
     assert radix_sort(alist) == []
+
+
+def test_same_items_in_list():
+    """Assert list remins the same."""
+    from radix import radix_sort
+    alist = [1, 1, 1, 1]
+    radix_sort(alist)
+    assert radix_sort(alist) == [1, 1, 1, 1]
