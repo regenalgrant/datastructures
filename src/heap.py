@@ -5,8 +5,20 @@ import math
 
 
 class Heap(object):
-    """Create a heap data structure."""
+    """Create class Heap."""
 
     def __init__(self):
-        """Init method for Heap class."""
+        """Initilializating for Heap class."""
         self.high_low = []
+
+    def get_parent(self, index):
+        """Index number of Node's parent."""
+        return (index - 1) // (2)
+
+    def get_left(self, index):
+        """Left child."""
+        return 2 * index + 1
+
+    def get_right(self, index):
+        """Right child."""
+        return 2 * index + 2
