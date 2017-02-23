@@ -4,7 +4,7 @@ import pytest
 
 
 @pytest.fixture()
-def new_graph():
+def native_graph():
     """Fixture for graph."""
     from graph import Graph
     test_graph = Graph()
@@ -28,18 +28,27 @@ def full_graph():
     return ample_graph
 
 
-def test_init(new_graph):
+def test_init(native_graph):
     """Test initilization."""
     from graph import Graph
-    assert isinstance(new_graph, Graph)
+    assert isinstance(native_graph, Graph)
 
 
-def test_add_node(new_graph):
+def test_add_node(native_graph):
     """Testing for node addition."""
-    assert "python" in new_graph.nodes()
+    assert "python" in native_graph.nodes()
 
 
-def test_nodes(my_graph):
+def test_nodes(native_graph):
     """Test nodes."""
-    assert "codefellows" in new_graph.nodes()
-    assert "python" in new_graph.nodes()
+    assert "codefellows" in native_graph.nodes()
+    assert "python" in native_graph.nodes()
+
+
+def test_add_edge():
+    """Test add_edge function for nodes in empty graph."""
+    from graph import Graph
+    native_graph = Graph()
+    native_graph.add_edge("codefellows", "python")
+    assert native_graph.graph["codefellows"] == ["python"]
+    assert native_graph.graph["python"] == []
