@@ -4,3 +4,17 @@
 from __future__ import division
 import time
 from random import randint
+
+
+def radix_sort(alist):
+    """Implementation of radix."""
+    if not alist:
+        return alist
+    tens = 10
+    for i in range(len(str(max(alist)))):
+        bucket = [[] for x in range(10)]
+        for num in alist:
+            bucket[(num % tens) // (tens // 10)].append(num)
+        tens *= 10
+        alist = [num for li in bucket for num in li]
+    return alist
