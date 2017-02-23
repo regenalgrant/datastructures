@@ -18,6 +18,7 @@ def test_push():
     high_low.push(data[1])
     assert high_low.high_low[1] == data[1]
 
+
 def test_get_parent():
     """Test parent method."""
     from heap import Heap
@@ -27,3 +28,23 @@ def test_get_parent():
     high_low.high_low.append(data[2])
     assert high_low.high_low[high_low.get_parent(1)] == data[0]
     assert high_low.high_low[high_low.get_parent(2)] == data[0]
+
+
+def test_get_left():
+    """Test left method."""
+    from heap import Heap
+    high_low = Heap()
+    high_low.push(data[0])
+    high_low.push(data[1])
+    high_low.push(data[2])
+    assert high_low.high_low[high_low.get_left(0)] == data[1]
+
+
+def test_get_right():
+    """Test left method."""
+    from heap import Heap
+    high_low = Heap()
+    high_low.push(data[0])
+    high_low.push(data[1])
+    high_low.push(data[2])
+    assert high_low.high_low[high_low.get_right(0)] == data[2]
