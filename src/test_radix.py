@@ -9,6 +9,13 @@ def test_radix_sort():
     assert radix_sort(radix_return_val) == [7, 11, 56, 93]
 
 
+def test_quick_sort():
+    """Assert that it works for tox."""
+    from quick_sort import quick_sort
+    quick_return_val = [56, 93, 7, 11]
+    assert quick_sort(quick_return_val) == [7, 11, 56, 93]
+
+
 def test_string_in_list():
     """Assert error is raised input."""
     from radix import radix_sort
