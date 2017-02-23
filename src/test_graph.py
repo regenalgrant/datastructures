@@ -14,7 +14,7 @@ def native_graph():
 
 
 @pytest.fixture()
-def full_graph():
+def ample_graph():
     """Fixture that makes a full graph."""
     from graph import Graph
     ample_graph = Graph()
@@ -54,8 +54,15 @@ def test_add_edge():
     assert native_graph.graph["python"] == []
 
 
-def test_edges(full_graph):
+def test_edges(ample_graph):
     """Test edges function."""
-    assert sorted(full_graph.edges()) == [('a', 'b'), ('a', 'd'),
-                                         ('b', 'd'), ('c', 'b'),
-                                         ('c', 'd'), ('d', 'a')]
+    assert sorted(ample_graph.edges()) == [('a', 'b'), ('a', 'd'),
+                                          ('b', 'd'), ('c', 'b'),
+                                          ('c', 'd'), ('d', 'a')]
+
+
+def test_node_exist(ample_graph):
+    """Test node exist."""
+    assert ample_graph.has_node("a") is True
+    assert ample_graph.has_node("z") is False
+    assert ample_graph.has_node("") is False
