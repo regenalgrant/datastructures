@@ -182,6 +182,8 @@ class Bst(object):
             for child in tree._children():
                 q.enqueue(child)
 
+#------------------delete--------------------------------
+
     def delete(self, value):
         """Delete value from tree."""
         if self.value == value:

@@ -264,6 +264,7 @@ def test_generators(instance):
                 instance.in_order,
                 instance.breadth_first]])
 
+#----------------------delete--------------------------------
 
 def test_delete_contains(multi_tree):
     """Test that tree does not contain deleted value after delete."""
