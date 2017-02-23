@@ -5,6 +5,22 @@ import time
 from random import randint
 
 
+def quick_sort(alist):
+    """Implement a quick sort on a list."""
+    low = []
+    high = []
+    # import pdb; pdb.set_trace()
+    try:
+        pivot = alist[0]
+        for i in alist[1:]:
+            if isinstance(i, str):
+                raise TypeError("List can not contain string.")
+            high.append(i) if i > pivot else low.append(i)
+        return quick_sort(low) + [pivot] + quick_sort(high)
+    except IndexError:
+        return []
+
+
 def radix_sort(alist):
     """Implementation of radix."""
     if not alist:
