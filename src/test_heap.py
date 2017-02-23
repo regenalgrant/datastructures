@@ -59,3 +59,13 @@ def test_compare_parent():
     high_low.push(data[3])
     high_low.compare_parent(0)
     assert high_low.high_low == [data[3], data[1], data[2]]
+
+
+def test_pop():
+    """Test pop method."""
+    from heap import Heap
+    high_low = Heap()
+    high_low.push(data[2])
+    high_low.push(data[1])
+    high_low.push(data[3])
+    assert high_low.pop() == data[2]
