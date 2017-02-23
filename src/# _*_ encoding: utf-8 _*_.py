@@ -48,7 +48,6 @@ def add_edge(self, val, val2):
         self.graph[val].append(val2)
 
 
-
 def has_node(self, val):
     """Check to see a given value is a node in the graph."""
     if val in self.nodes():
