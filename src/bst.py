@@ -15,7 +15,6 @@ class Bst(object):
         self.left_child = left_child
         self.right_child = right_child
 
-
     @property
     def left_child(self):
         """Left child."""
@@ -32,6 +31,11 @@ class Bst(object):
         """Right child."""
         return self._right_child
 
+    @right_child.setter
+    def right_child(self, other_node):
+        self._right_child = other_node
+        if other_node is not None:
+            other_node.parent = self
 
     def insert(self, value):
         """Insert value into tree if not present."""
@@ -97,20 +101,21 @@ class Bst(object):
             right_depth = self.right_child.depth()
         return left_depth - right_depth
 
-    if __name__ == "__main__":
-        values = random.sample(range(1000), 100)
-        big_tree = Bst()
-        for val in values:
-            big_tree.insert(val)
-        search_val = random.choice(values)
 
-        timescores = []
-        for n in range(1000):
-            start = time.time()
-            big_tree.contains(search_val)
-            delta = time.time() - start
-            timescores.append((delta, search_val))
+if __name__ == "__main__":
+    values = random.sample(range(1000), 100)
+    big_tree = Bst()
+    for val in values:
+        big_tree.insert(val)
+    search_val = random.choice(values)
 
-        timescores.sort()
-        print("The fastest search took {} seconds for {}".format(*timescores[0]))
-        print("The slowest search took {} seconds for {}".format(*timescores[-1]))
+    timescores = []
+    for n in range(1000):
+        start = time.time()
+        big_tree.contains(search_val)
+        delta = time.time() - start
+        timescores.append((delta, search_val))
+
+    timescores.sort()
+    print("The fastest search took {} seconds for {}".format(*timescores[0]))
+    print("The slowest search took {} seconds for {}".format(*timescores[-1]))
