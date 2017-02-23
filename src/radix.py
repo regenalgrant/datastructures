@@ -31,7 +31,7 @@ def time_it(input_list):
 if __name__ == '__main__':
     small_list = time_it([2, 1])
     large_list = time_it([randint(0, 1000000) for i in range(10000)])
-    print("Radix sorts a list by taking the ones, tens, hundreds, etc values and placing them in containers"
-        "or, buckets. Then merging it all back together.")
+    print("Radix sorts a list ones, tens, hundreds, values and placing in containers"
+        "or, buckets. Then merge all back together.")
     print("Input: [2, 1]\n\tnumber of runs: 500\n\taverage time: {}".format(small_list))
     print("Input: [randint(0, 1000000) for i in range(10000)]\n\tnumber of runs: 500\n\taverage time: {}".format(large_list))
