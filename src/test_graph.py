@@ -66,3 +66,9 @@ def test_node_exist(ample_graph):
     assert ample_graph.has_node("a") is True
     assert ample_graph.has_node("z") is False
     assert ample_graph.has_node("") is False
+
+
+def test_delete_node(ample_graph):
+    """Test delete without node."""
+    with pytest.raises(IndexError):
+        ample_graph.delete_node("")
