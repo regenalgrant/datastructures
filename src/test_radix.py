@@ -14,3 +14,11 @@ def test_string_in_list():
     from radix import radix_sort
     with pytest.raises(TypeError):
         radix_sort([1, 45, 'a', 5])
+
+
+def test_empty_list():
+    """Assert empty list is None."""
+    from radix import radix_sort
+    alist = []
+    radix_sort(alist)
+    assert radix_sort(alist) == []
