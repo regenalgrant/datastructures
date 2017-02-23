@@ -52,3 +52,10 @@ def test_add_edge():
     native_graph.add_edge("codefellows", "python")
     assert native_graph.graph["codefellows"] == ["python"]
     assert native_graph.graph["python"] == []
+
+
+def test_edges(full_graph):
+    """Test edges function."""
+    assert sorted(full_graph.edges()) == [('a', 'b'), ('a', 'd'),
+                                         ('b', 'd'), ('c', 'b'),
+                                         ('c', 'd'), ('d', 'a')]
