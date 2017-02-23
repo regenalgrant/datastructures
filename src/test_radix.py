@@ -25,8 +25,16 @@ def test_empty_list():
 
 
 def test_same_items_in_list():
-    """Assert list remins the same."""
+    """Assert list remains the same."""
     from radix import radix_sort
     alist = [1, 1, 1, 1]
     radix_sort(alist)
     assert radix_sort(alist) == [1, 1, 1, 1]
+
+
+def test_reverse_order_list():
+    """Assert reversed list on sort."""
+    from radix import radix_sort
+    alist = [5, 4, 3, 2, 1]
+    radix_sort(alist)
+    assert radix_sort(alist) == [1, 2, 3, 4, 5]
