@@ -29,6 +29,11 @@ def full_graph():
 
 
 def test_init(new_graph):
-    """Test init function."""
+    """Test initilization."""
     from graph import Graph
     assert isinstance(new_graph, Graph)
+
+
+def test_add_node(new_graph):
+    """Test add_node function."""
+    assert "python" in new_graph.nodes()
