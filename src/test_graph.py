@@ -107,11 +107,11 @@ def test_adjacent(ample_graph):
         ample_graph.adjacent('y', 'z')
 
 
-def test_adjacent_0(ample_graph):
+def test_adjacent_zero(ample_graph):
     """Test adjacent function with good values."""
     assert ample_graph.adjacent('a', 'b')
 
 
-def test_adjacent_1(ample_graph):
+def test_adjacent_one(ample_graph):
     """Test adjacent function with good values."""
     assert not ample_graph.adjacent('a', 'c')
