@@ -44,3 +44,26 @@ class Graph(object):
         if val in self.nodes():
             return True
         return False
+
+    def delete_node(self, val):
+        """Delete node from the graph."""
+        present = False
+        for key in self.graph:
+            if key is val:
+                del self.graph[key]
+                present = True
+                break
+        if not present:
+            raise IndexError("Not in graph")
+        for key in self.graph:
+            if val in self.graph[key]:
+                self.graph[key].remove(val)
+
+    def delete_edge(self, val, val2):
+        """Delete edge from the graph."""
+        if self.has_node(val):
+            if val2 in self.graph[val]:
+                self.graph[val].remove(val2)
+                return
+            raise IndexError("No edge")
+        raise IndexError("Value is not present in the graph in first Node.")
