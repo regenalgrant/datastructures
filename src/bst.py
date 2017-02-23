@@ -54,16 +54,16 @@ class Bst(object):
             raise TypeError("Cannot mix types in a binary search tree.")
 
     def contains(self, value):
-    """Return True if value in tree."""
-    if self.value == value:
-        return True
-    left_contains = False
-    right_contains = False
-    if self.left_child is not None:
-        left_contains = self.left_child.contains(value)
-    if self.right_child is not None:
-        right_contains = self.right_child.contains(value)
-    return left_contains or right_contains
+        """Return True if value in tree."""
+        if self.value == value:
+            return True
+        left_contains = False
+        right_contains = False
+        if self.left_child is not None:
+            left_contains = self.left_child.contains(value)
+        if self.right_child is not None:
+            right_contains = self.right_child.contains(value)
+        return left_contains or right_contains
 
     def size(self):
         """Return size of tree."""
@@ -96,3 +96,21 @@ class Bst(object):
         if self.right_child is not None:
             right_depth = self.right_child.depth()
         return left_depth - right_depth
+
+    if __name__ == "__main__":
+        values = random.sample(range(1000), 100)
+        big_tree = Bst()
+        for val in values:
+            big_tree.insert(val)
+        search_val = random.choice(values)
+
+        timescores = []
+        for n in range(1000):
+            start = time.time()
+            big_tree.contains(search_val)
+            delta = time.time() - start
+            timescores.append((delta, search_val))
+
+        timescores.sort()
+        print("The fastest search took {} seconds for {}".format(*timescores[0]))
+        print("The slowest search took {} seconds for {}".format(*timescores[-1]))
