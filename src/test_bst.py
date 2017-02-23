@@ -42,3 +42,24 @@ def test_new_empty_tree(empty_instance):
         empty_instance.parent is None,
         empty_instance.left_child is None,
         empty_instance.right_child is None])
+
+
+def test_insert(empty_instance):
+    """Test insert method on empty tree."""
+    empty_instance.insert(0)
+    assert empty_instance.contains(0)
+
+
+def test_insert_many(empty_instance):
+    """Test insert method with many values."""
+    insertions = list(range(12))
+    for chump in insertions:
+        empty_instance.insert(chump)
+    for chump in insertions:
+        assert empty_instance.contains(chump)
+
+
+def test_contains(instance):
+    """Test contains method."""
+    for n in range(20):
+        assert instance.contains(n)
