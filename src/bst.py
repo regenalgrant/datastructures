@@ -85,3 +85,4 @@ class Bst(object):
         depths = [child.depth()
                   for child in (self.left_child, self.right_child)
                   if child is not None]
+        return max(depths) + 1
