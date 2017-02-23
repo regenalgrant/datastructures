@@ -52,3 +52,36 @@ class Bst(object):
                     self.left_child.insert(value)
         except TypeError:
             raise TypeError("Cannot mix types in a binary search tree.")
+
+    def contains(self, value):
+    """Return True if value in tree."""
+    if self.value == value:
+        return True
+    left_contains = False
+    right_contains = False
+    if self.left_child is not None:
+        left_contains = self.left_child.contains(value)
+    if self.right_child is not None:
+        right_contains = self.right_child.contains(value)
+    return left_contains or right_contains
+
+    def size(self):
+        """Return size of tree."""
+        if self.value is None:
+            return 0
+        if not self.left_child and not self.right_child:
+            return 1
+        sizes = [child.size()
+                 for child in (self.left_child, self.right_child)
+                 if child is not None]
+        return sum(sizes) + 1
+
+    def depth(self):
+        """Return number of levels in the tree."""
+        if self.value is None:
+            return 0
+        if not self.left_child and not self.right_child:
+            return 1
+        depths = [child.depth()
+                  for child in (self.left_child, self.right_child)
+                  if child is not None]
