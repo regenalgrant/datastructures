@@ -88,3 +88,14 @@ def test_delete_edge(ample_graph):
     assert sorted(ample_graph.edges()) == [('a', 'b'), ('a', 'd'),
                                           ('b', 'd'), ('c', 'b'),
                                           ('c', 'd')]
+
+
+def test_neighbors_for_brown_sugar(ample_graph):
+    """Test neighbors function."""
+    assert sorted(ample_graph.neighbors('b')) == ['a', 'c', 'd']
+
+
+def test_neighbors_1_for_brown_sugar(ample_graph):
+    """Test neighbors function."""
+    with pytest.raises(IndexError):
+        ample_graph.neighbors('z')
