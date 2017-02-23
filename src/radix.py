@@ -20,10 +20,18 @@ def radix_sort(alist):
     return alist
 
 def time_it(input_list):
-    """Return avergae time of radix sort run."""
+    """Average time of radix sort."""
     for i in range(501):
         start = time.time()
         radix_sort(input_list)
         time_passed = time.time() - start
     avg_time = time_passed / 500
     return avg_time
+
+if __name__ == '__main__':
+    small_list = time_it([2, 1])
+    large_list = time_it([randint(0, 1000000) for i in range(10000)])
+    print("Radix sorts a list by taking the ones, tens, hundreds, etc values and placing them in containers"
+        "or, buckets. Then merging it all back together.")
+    print("Input: [2, 1]\n\tnumber of runs: 500\n\taverage time: {}".format(small_list))
+    print("Input: [randint(0, 1000000) for i in range(10000)]\n\tnumber of runs: 500\n\taverage time: {}".format(large_list))
