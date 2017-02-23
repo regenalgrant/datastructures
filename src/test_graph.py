@@ -35,5 +35,11 @@ def test_init(new_graph):
 
 
 def test_add_node(new_graph):
-    """Test add_node function."""
+    """Testing for node addition."""
+    assert "python" in new_graph.nodes()
+
+
+def test_nodes(my_graph):
+    """Test nodes."""
+    assert "codefellows" in new_graph.nodes()
     assert "python" in new_graph.nodes()
