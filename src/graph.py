@@ -15,3 +15,14 @@ class Graph(object):
         for key in self.graph:
             nodes.append(key)
         return nodes
+
+    def edges(self):
+        """List of edges in graph."""
+        return [(key, item) for key in self.graph for item in self.graph[key]]
+
+    def add_node(self, val):
+        """Add node to graph."""
+        if val in self.graph:
+            pass
+        else:
+            self.graph[val] = []
