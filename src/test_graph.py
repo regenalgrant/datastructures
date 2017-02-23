@@ -99,3 +99,19 @@ def test_neighbors_1_for_brown_sugar(ample_graph):
     """Test neighbors function."""
     with pytest.raises(IndexError):
         ample_graph.neighbors('z')
+
+
+def test_adjacent(ample_graph):
+    """Test adjacent function with bad values."""
+    with pytest.raises(IndexError):
+        ample_graph.adjacent('y', 'z')
+
+
+def test_adjacent_0(ample_graph):
+    """Test adjacent function with good values."""
+    assert ample_graph.adjacent('a', 'b')
+
+
+def test_adjacent_1(ample_graph):
+    """Test adjacent function with good values."""
+    assert not ample_graph.adjacent('a', 'c')
