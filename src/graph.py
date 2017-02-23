@@ -80,3 +80,12 @@ class Graph(object):
             if item not in neighbors:
                 neighbors.append(item)
         return neighbors
+
+    def adjacent(self, val, val2):
+        """Ensure value is connected to another by an edge."""
+        if val not in self.graph or val2 not in self.graph:
+            raise IndexError("Value not in graph.")
+        edges_list = self.edges()
+        if (val, val2) in edges_list or (val2, val) in edges_list:
+            return True
+        return False
