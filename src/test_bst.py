@@ -128,3 +128,44 @@ def test_balance_left(instance2):
 def test_balance_extreme_right(instance):
     """Test balance method on extremely-unbalanced tree."""
     assert instance.balance() == - 19
+
+#---------------test traversal---------------------------------
+
+def test_in_order(instance2):
+    """Test inorder traversal method."""
+    assert list(instance2.in_order()) == [5, 6, 7, 10, 11, 20]
+
+
+def test_in_order_empty(empty_instance):
+    """Test inorder traversal on empty tree."""
+    assert list(empty_instance.in_order()) == []
+
+
+def test_pre_order(instance2):
+    """Test preorder traversal method."""
+    assert list(instance2.pre_order()) == [7, 6, 5, 10, 20, 11]
+
+
+def test_pre_order_empty(empty_instance):
+    """Test preorder traversal on empty tree."""
+    assert list(empty_instance.pre_order()) == []
+
+
+def test_post_order(instance2):
+    """Test postorder traversal method."""
+    assert list(instance2.post_order()) == [5, 6, 11, 20, 10, 7]
+
+
+def test_post_order_empty(empty_instance):
+    """Test pos order traversal on empty tree."""
+    assert list(empty_instance.post_order()) == []
+
+
+def test_breadth_first(instance2):
+    """Test breadth first traversal method."""
+    assert list(instance2.breadth_first()) == [7, 6, 10, 5, 20, 11]
+
+
+def test_breadth_first_empty(empty_instance):
+    """Test breadth first traversal on empty tree."""
+    assert list(empty_instance.breadth_first()) == []
