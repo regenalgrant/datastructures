@@ -72,3 +72,19 @@ def test_delete_node(ample_graph):
     """Test delete without node."""
     with pytest.raises(IndexError):
         ample_graph.delete_node("")
+
+
+def test_node_deleted():
+    """Test delete function no value."""
+    from graph import Graph
+    empty_graph = Graph()
+    with pytest.raises(IndexError):
+        empty_graph.delete_node('a')
+
+
+def test_delete_edge(ample_graph):
+    """Test delete edge function."""
+    ample_graph.delete_edge('d', 'a')
+    assert sorted(ample_graph.edges()) == [('a', 'b'), ('a', 'd'),
+                                          ('b', 'd'), ('c', 'b'),
+                                          ('c', 'd')]
