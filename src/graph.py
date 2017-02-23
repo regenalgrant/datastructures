@@ -67,3 +67,16 @@ class Graph(object):
                 return
             raise IndexError("No edge")
         raise IndexError("Value is not present in the graph in first Node.")
+
+    def neighbors(self, val):
+        """Return all the neighbors of given value."""
+        neighbors = []
+        if val not in self.graph:
+            raise IndexError("not in graph")
+        for key in self.graph:
+            if val in self.graph[key]:
+                neighbors.append(key)
+        for item in self.graph[val]:
+            if item not in neighbors:
+                neighbors.append(item)
+        return neighbors
