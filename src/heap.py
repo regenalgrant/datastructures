@@ -40,3 +40,16 @@ class Heap(object):
                 self.high_low[largest] = temp
             else:
                 break
+
+    def push(self, val):
+        """Push new node to heap."""
+        self.high_low.append(val)
+        try:
+            self.compare_parent(self.high_low.index(self.high_low[-1]))
+        except (ValueError, IndexError):
+            pass
+
+    def pop(self):
+        """Remove pop from item of heap."""
+        temp = self.high_low.pop(0)
+        self.compare_parent(self.high_low.index(self.high_low[-1]))
