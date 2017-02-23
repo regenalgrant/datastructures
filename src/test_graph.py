@@ -26,3 +26,9 @@ def full_graph():
     ample_graph.add_edge("d", "a")
     print(ample_graph.graph)
     return ample_graph
+
+
+def test_init(new_graph):
+    """Test init function."""
+    from graph import Graph
+    assert isinstance(new_graph, Graph)
