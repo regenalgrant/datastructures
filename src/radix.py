@@ -18,3 +18,12 @@ def radix_sort(alist):
         tens *= 10
         alist = [num for li in bucket for num in li]
     return alist
+
+def time_it(input_list):
+    """Return avergae time of radix sort run."""
+    for i in range(501):
+        start = time.time()
+        radix_sort(input_list)
+        time_passed = time.time() - start
+    avg_time = time_passed / 500
+    return avg_time
