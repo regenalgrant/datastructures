@@ -1,7 +1,6 @@
 # _*_ encoding: utf-8 _*_
 """Python graph."""
 
-from deque import Deque
 from stack import Stack
 from queue import Queue
 
@@ -28,79 +27,78 @@ def edges(self):
     return [{(key1, key2): self.graph[key1][key2]} for key1 in self.graph for key2 in self.graph[key1]]
 
 
-def add_node(self, val):
+def add_node(self, value):
     """Add node to graph."""
-    if val in self.graph:
+    if value in self.graph:
         pass
     else:
-        self.graph[val] = {}
+        self.graph[value] = {}
 
 
-def add_edge(self, val, val2):
+def add_edge(self, value, value2):
     """Add edge to graph."""
-    if val not in self.graph:
-        self.add_node(val)
-    if val2 not in self.graph:
-        self.add_node(val2)
-    if val2 in self.graph[val]:
+    if value not in self.graph:
+        self.add_node(value)
+    if value2 not in self.graph:
+        self.add_node(value2)
+    if value2 in self.graph[value]:
         pass
     else:
-        self.graph[val].append(val2)
+        self.graph[value].append(value2)
 
 
-
-def has_node(self, val):
+def has_node(self, value):
     """Check to see a given value is a node in the graph."""
-    if val in self.nodes():
+    if value in self.nodes():
         return True
     return False
 
 
-def delete_node(self, val):
+def delete_node(self, value):
     """Delete node from the graph."""
     present = False
     for key in self.graph:
-        if key is val:
+        if key is value:
             del self.graph[key]
             present = True
             break
     if not present:
         raise IndexError("Already not in graph")
     for key in self.graph:
-        if val in self.graph[key]:
-            del self.graph[key][val]
+        if value in self.graph[key]:
+            del self.graph[key][value]
 
 
-def delete_edge(self, val, val2):
+def delete_edge(self, value, value2):
     """Delete edge from the graph."""
-    if self.has_node(val):
-        if val2 in self.graph[val]:
-            del self.graph[val][val2]
+    if self.has_node(value):
+        if value2 in self.graph[value]:
+            del self.graph[value][value2]
             return
         raise IndexError("No such edge")
     raise IndexError("Your first value is not present in the graph.")
 
 
-def neighbors(self, val):
+def neighbors(self, value):
     """Return all the neighbors of given value."""
     neighbors = []
-    if val not in self.graph:
+    if value not in self.graph:
         raise IndexError("not in graph")
     for key in self.graph:
-        if val in self.graph[key]:
+        if value in self.graph[key]:
             neighbors.append(key)
-    for item in self.graph[val]:
+    for item in self.graph[value]:
         if item not in neighbors:
             neighbors.append(item)
     return neighbors
 
 
-def adjacent(self, val, val2):
-    """Ensure value is connected to another by an edge."""
-    if val not in self.graph or val2 not in self.graph:
+def adjacent(self, value, value2):
+    """Ensure valueue is connected to another by an edge."""
+    if value not in self.graph or value2 not in self.graph:
         raise IndexError("Value not in graph.")
     edges_list = self.edges()
-    if (val, val2) in edges_list or (val2, val) in edges_list:
+    if (value, value2) in edges_list or (value2, value) in edges_list:
         return True
     return False
 
@@ -139,7 +137,7 @@ def breadth_traversal(self, start):
 
 
 if __name__ == '__main__':
-    from test_graph import my_graph, deep_cyclic_graph
+    from test_graph import native_graph, deep_cyclic_graph, ample_graph
     print('Given the following cyclic graph:')
     print(deep_cyclic_graph().graph)
     print('The depth traversal will appear as follows:')
@@ -147,7 +145,7 @@ if __name__ == '__main__':
     print('The breadth traversal will appear as follows:')
     print(deep_cyclic_graph().breadth_traversal('A'))
     print('On the other hand, given this short non-cyclic graph:')
-    this_graph = my_graph()
+    this_graph = native_graph()
     this_graph.add_edge("codefellows", "python")
     this_graph.add_edge("python", "javascript")
     this_graph.add_edge("codefellows", "css")
