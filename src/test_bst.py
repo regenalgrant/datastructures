@@ -1,3 +1,4 @@
+
 # _*_ encoding: utf-8 _*_
 """Tests for binary search tree."""
 from bst import Bst
@@ -424,3 +425,4 @@ def test_rotated_root_after_delete_l2():
     assert all([tree.value == 3,
                 tree.left_child.value == 2,
                 tree.right_child.value == 4])
+
