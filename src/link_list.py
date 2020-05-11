@@ -1,9 +1,11 @@
+"""Implementing LinkList."""
+
 
 class Node(object):
     """Creating a template for a Node."""
 
     def __init__(self, data):
-        """providing attribute to Node."""
+        """Providing attribute to Node."""
         self.data = data
         self.next_node = None
 
@@ -12,11 +14,12 @@ class LinkedList(object):
     """Creating a template for Link List."""
 
     def __init__(self, data=None):
-        """Attribute of head is
-        available upon intitialization,
-        if iterable date is available, iters through data."""
+        """
+        Attribute of head available upon intitialization.
+        If iterable date is available. Iters through data.
+        """
         self.head = None
-        if data is not None:
+        if data:
             try:
                 for info in data:
                     self.push(info)
@@ -70,8 +73,8 @@ class LinkedList(object):
             while current.next_node != node:
                 current = current.next_node
             current.next_node = current.next_node.next_node
-        except ValueError:
-            raise IndexError("Error")
+        except AttributeError:
+            raise IndexError("Value not found in list")
 
     def display(self):
         """Display unicode string of a tuple."""
