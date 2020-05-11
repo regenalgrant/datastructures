@@ -1,4 +1,7 @@
 """Testing Link List."""
+
+from __future__ import unicode_literals
+
 import pytest
 from link_list import LinkedList, Node
 
@@ -93,6 +96,14 @@ def test_remove_node_far_head():
     test_instance.pop()
     assert test_instance.head.data == "e"
 
+
+def test_remove_value_not_found():
+    """Testing for an error message when node to be removed not found."""
+    test_instance = LinkedList("list")
+    search_node = Node("u")
+    with pytest.raises(IndexError)as message:
+        test_instance.remove(search_node)
+    assert "Value not found in list" in str(message)
 
 def test_display():
     """Testing display returning a unicode within string."""

@@ -1,3 +1,4 @@
+"""Implementing DLL."""
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
@@ -29,7 +30,6 @@ class DoublyLinkedList(object):
     def push(self, data):
         """Creating a push method that adds a new node to head of the DoublyLinkedList."""
         new_node = Node(data)
-        new_node.previous = None
         new_node.next_node = self.head
         if self.head:
             self.head.previous = new_node
@@ -44,14 +44,20 @@ class DoublyLinkedList(object):
             self.head.next_node.previous is None
             self.head = self.head.next_node
         except AttributeError:
+
+            self.head = None
+            self.tail = None
+
             self.head is None
             self.tail is None
+            if self.head is None or self.tail is None:
+                return
+
         return pop_head.data
 
     def append(self, data):
         """Appending the value at the tail of the list."""
         new_node = Node(data)
-        new_node.next_node = None
         new_node.previous = self.tail
         if self.tail:
             self.tail.next_node = new_node
@@ -80,6 +86,9 @@ class DoublyLinkedList(object):
             raise IndexError("Value does not exist in the list")
         if pointer.next_node is None and pointer.previous is None:
             self.head = None
+
+            self.tail = None
+
             return
         if pointer.previous is None:
             self.head = pointer.next_node
