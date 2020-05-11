@@ -88,3 +88,12 @@ def test_queue_size():
     """Test that list initialized with data."""
     test_queue = Queue(DATA_TABLE_TEST)
     assert test_queue.size() == 2
+
+
+def test_more_size():
+    """Test enqueue and dequeue with data."""
+    test_queue = Queue(DATA_TABLE_TEST)
+    test_queue.enqueue(1)
+    test_queue.enqueue(7)
+    test_queue.dequeue()
+    assert test_queue.size() == 3
